@@ -19,7 +19,7 @@ JobStorage.Current = new MemoryStorage();
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.
-Console.WriteLine($"Urls from Program.cs before app.StartAsync(): {string.Join(", ", app.Urls)}");
+
 app.UseSwagger();
 // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
 // specifying the Swagger JSON endpoint.
