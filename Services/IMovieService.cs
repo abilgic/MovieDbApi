@@ -1,4 +1,6 @@
 ﻿using Hangfire.Common;
+using MovieDbApi.Entities;
+using MovieDbApi.Models;
 using MovieDbApi.Repository;
 
 namespace MovieDbApi.Services

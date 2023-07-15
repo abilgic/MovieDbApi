@@ -1,4 +1,6 @@
 ﻿using Hangfire.Common;
+using MovieDbApi.Entities;
+using MovieDbApi.Models;
 using MovieDbApi.Repository;
 
 namespace MovieDbApi.Services
@@ -17,9 +19,9 @@ namespace MovieDbApi.Services
             {
                 var Movie = new Movie
                 {
-                    Name = MovieModel.Name,
-                    Description = MovieModel.Description,
-                    CreateDate = DateTime.Now
+                    //Name = MovieModel.Name,
+                    //Description = MovieModel.Description,
+                    //CreateDate = DateTime.Now
                 };
 
                 var result = await Add(Movie);
@@ -64,13 +66,13 @@ namespace MovieDbApi.Services
         {
             try
             {
-                var Movieitem = await GetById(MovieModel.Id);
-                Movieitem.Name = MovieModel.Name;
-                Movieitem.Description = MovieModel.Description;
-                Movieitem.CreateDate = DateTime.Now;
+                //var Movieitem = await GetById(MovieModel.Id);
+                //Movieitem.Name = MovieModel.Name;
+                //Movieitem.Description = MovieModel.Description;
+                //Movieitem.CreateDate = DateTime.Now;
 
-                var result = await UpdateAsync(Movieitem);
-                return result;
+                // var result = await UpdateAsync(Movie);
+                return 1;
 
             }
             catch (Exception)

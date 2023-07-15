@@ -1,11 +1,13 @@
-﻿using System.Linq.Expressions;
+﻿using Microsoft.EntityFrameworkCore;
+using MovieDbApi.Entities;
+using System.Linq.Expressions;
 
 namespace MovieDbApi.Repository
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        protected readonly ApplicationDbContext _context;
-        public Repository(ApplicationDbContext context)
+        protected readonly MovieDbContext _context;
+        public Repository(MovieDbContext context)
         {
             _context = context;
         }
