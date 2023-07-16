@@ -11,21 +11,34 @@ namespace MovieDbApi.Controllers
     {
         // GET: MovieController
         [HttpGet]
-        public async Task<IEnumerable<MovieModel>> Get()
+        public async Task<MovieModel> Get()
 
         {
-            List<MovieModel> movieList = new List<MovieModel>();
+
+            MovieModel movieList = new MovieModel();
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync("https://api.themoviedb.org/3/movie/11?api_key=70a5ea8365bc45ccf8dfe966229c0083"))
+                using (var response = await httpClient.GetAsync("https://api.themoviedb.org/3/movie/now_playing?api_key=70a5ea8365bc45ccf8dfe966229c0083"))
                 {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    movieList = JsonConvert.DeserializeObject<List<MovieModel>>(apiResponse);
+
+                    try
+                    {
+                        string apiResponse = await response.Content.ReadAsStringAsync();
+                        Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(apiResponse);
+
+                        movieList = (MovieModel)JsonConvert.DeserializeObject<MovieModel>(apiResponse);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
                 }
             }
 
             return movieList;
         }
+
+
         //public ActionResult Index()
         //{
         //    return View();

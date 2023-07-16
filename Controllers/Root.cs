@@ -1,16 +1,5 @@
-﻿namespace MovieDbApi.Models
+﻿namespace MovieDbApi.Controllers
 {
-    public class MovieModel
-    {
-        public Dates dates { get; set; }
-        public int page { get; set; }
-        public List<Result> results { get; set; }
-        public int total_pages { get; set; }
-        public int total_results { get; set; }
-
-
-
-    }
     public class Dates
     {
         public string maximum { get; set; }
@@ -35,5 +24,13 @@
         public int vote_count { get; set; }
     }
 
-    
+    public class Root
+    {
+        public Dates dates { get; set; }
+        public int page { get; set; }
+        public List<Result> results { get; set; }
+        public int total_pages { get; set; }
+        public int total_results { get; set; }
+    }
+
 }
